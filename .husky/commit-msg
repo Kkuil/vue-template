@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 使用正则表达式检查commit msg格式
+commit_msg_regex='^(feat|update|add|bug|other|nothing|fix|docs|style|refactor|perf|test|chore)(\(.+\))?: .{1,50}$'
+
+if ! grep -iqE "$commit_msg_regex" "$1"; then
+    echo "Error: Commit message format is invalid. Please follow the commit message convention."
+    exit 1
+fi
+
+npx --no -- commitlint --edit $1
