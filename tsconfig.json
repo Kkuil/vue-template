@@ -9,6 +9,12 @@
             "DOM",
             "DOM.Iterable"
         ],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
         "skipLibCheck": true,
         /* Bundler mode */
         "moduleResolution": "bundler",
